@@ -19,10 +19,14 @@ export class AppComponent implements OnInit {
   const componentRef = componentFactory.create(this.injector);
   // this.pdfTest?.insert(componentRef.hostView)
 
-  const contentElement = componentRef.location.nativeElement.querySelector('#pdf-content');
-  if (contentElement) {
-    this.html = contentElement.innerHTML;
-  }
+   componentRef.changeDetectorRef.detectChanges();
+
+   this.html = componentRef.location.nativeElement.innerHTML;
+
+  // const contentElement = componentRef.location.nativeElement.querySelector('#pdf-content');
+  // if (contentElement) {
+  //   this.html = contentElement.innerHTML;
+  // }
  }
 
  generatePDF() {
