@@ -8,7 +8,7 @@ import { PdfTestComponent } from './pdf-test/pdf-test.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('pdf-test', { read: ViewContainerRef }) pdfTest?: ViewContainerRef;
+  // @ViewChild('pdf-test', { read: ViewContainerRef }) pdfTest?: ViewContainerRef;
   title = 'pdf-test';
   html!: string;
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
  ngOnInit() {
   const componentFactory = this.componentFactoryResolver.resolveComponentFactory(PdfTestComponent);
   const componentRef = componentFactory.create(this.injector);
-  this.pdfTest?.insert(componentRef.hostView)
+  // this.pdfTest?.insert(componentRef.hostView)
 
   const contentElement = componentRef.location.nativeElement.querySelector('#pdf-content');
   if (contentElement) {
